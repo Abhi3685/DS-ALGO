@@ -1,9 +1,8 @@
 Recursion Questions
 ===================
 
-Print Increasing
-Print Decreasing
-Print Increasing Decreasing
+Print Increasing & Decreasing
+Print Increasing Decreasing (1 3 5 7 9 10 8 6 4 2)
 Power Of Number (x^y)
 Print Array
 Find Max/Min in Array
@@ -15,3 +14,5 @@ Flood Fill (Single & Variable JUMP)
 Rat In Maze
 Knight Tour
 Island Ocean
+
+Permutation With & Without Repetition
