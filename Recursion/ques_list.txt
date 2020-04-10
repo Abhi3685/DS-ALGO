@@ -16,3 +16,6 @@ Knight Tour
 Island Ocean
 
 Permutation With & Without Repetition
+Combination With & Without Repetition
+Permutation & Combination Subsequence Approach
+
