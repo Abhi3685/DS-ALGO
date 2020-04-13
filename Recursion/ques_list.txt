@@ -19,3 +19,6 @@ Permutation With & Without Repetition
 Combination With & Without Repetition
 Permutation & Combination Subsequence Approach
 
+Queen Combination ( 1D & 2D )
+Queen Permutation ( 1D & 2D )
+N Queen Problem ( O(n) )
