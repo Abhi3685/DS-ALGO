@@ -25,3 +25,7 @@ N Queen Problem ( O(n) )
 
 Bit Manipulation
 Sudoku Solver
+
+Cryptoarithmetic Problem
+Permutations of String
+Partition Equal Subset Sum
