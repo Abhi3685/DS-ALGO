@@ -26,7 +26,7 @@ bool wordBreak(string s, vector<string> &wordDict, unordered_map<string, bool> &
 
 bool canPHword(vector<vector<char>> &box, int r, int c, string word)
 {
-    if (r >= box.size() || c + word.length() - 1 >= box[0].size())
+    if (c + word.length() - 1 >= box[0].size())
         return false;
     for (int j = 0; j < word.length(); j++)
     {
@@ -38,7 +38,7 @@ bool canPHword(vector<vector<char>> &box, int r, int c, string word)
 
 bool canPVword(vector<vector<char>> &box, int r, int c, string word)
 {
-    if (r + word.length() - 1 >= box.size() || c >= box[0].size())
+    if (r + word.length() - 1 >= box.size())
         return false;
     for (int j = 0; j < word.length(); j++)
     {
@@ -155,7 +155,6 @@ int main()
                                 {'-', '+', '+', '+', '+', '+', '+', '+', '+', '-'},
                                 {'+', '-', '-', '-', '-', '-', '-', '-', '-', '-'},
                                 {'+', '+', '+', '+', '+', '+', '+', '+', '+', '+'}};
-    string str = "";
     vector<string> words = {"CHEMISTRY", "PHYSICS", "GEOGRAPHY", "HISTORY", "MATHS", "CIVICS"};
     crossWord(box, words, 0);
 
