@@ -32,3 +32,5 @@ Partition Set into K Subsets with Equal Sum
 
 WordBreak
 CrossWord Solver
+
+Decode Ways
