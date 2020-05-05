@@ -90,18 +90,45 @@ void perOfString(string str, string ans)
     }
 }
 
-void equiSet(vector<int> &arr, int idx, int sum1, int sum2, string set1, string set2)
+bool canPartitionUtility(vector<int> &arr, int idx, int k, int sum, int target, vector<bool> &vis)
 {
-    if (idx == arr.size())
+    if (k == 1)
+        return true;
+    if (sum > target)
+        return false;
+    if (sum == target)
+        return canPartitionUtility(arr, 0, k - 1, 0, target, vis);
+
+    for (int i = idx; i < arr.size(); i++)
     {
-        if (sum1 == sum2)
+        if (!vis[i])
         {
-            cout << set1 << " = " << set2 << endl;
+            vis[i] = true;
+            if (canPartitionUtility(arr, i + 1, k, sum + arr[i], target, vis))
+                return true;
+            vis[i] = false;
         }
-        return;
     }
-    equiSet(arr, idx + 1, sum1 + arr[idx], sum2, set1 + to_string(arr[idx]) + " ", set2);
-    equiSet(arr, idx + 1, sum1, sum2 + arr[idx], set1, set2 + to_string(arr[idx]) + " ");
+    return false;
+}
+
+bool canPartition(vector<int> &arr, int k)
+{
+    int sum = 0;
+    for (int num : arr)
+        sum += num;
+    if (sum % k != 0)
+    {
+        cout << "Not Possible!" << endl;
+        return false;
+    }
+
+    vector<bool> vis(arr.size());
+    bool res = canPartitionUtility(arr, 0, k, 0, sum / k, vis);
+    if (res)
+        cout << "Possible!" << endl;
+    else
+        cout << "Not Possible!" << endl;
 }
 
 void solve()
@@ -131,13 +158,11 @@ void solve()
     // Example: abc -> abc, acb, bac, bca, cab, cba
     // perOfString("abc", "");
 
-    // Q) Given an array of numbers A = [10, 20, 30, ..., 80]. Divide the array into
-    // 2 sets that satisfies the following constraints
-    //      1. SUMMATION set1 = SUMMATION set2
-    //      2. set1 UNION set2 = A
-    //      3. set1 INTERSECTION set2 = PHI(EMPTY SET)
-    // vector<int> arr = {10, 20, 30, 40, 50, 60, 70};
-    // equiSet(arr, 1, arr[0], 0, to_string(arr[0]) + " ", "");
+    // Partition of a set into K subsets with equal sum
+    // https://www.geeksforgeeks.org/partition-set-k-subsets-equal-sum/
+    vector<int> arr = {2, 1, 4, 5, 6};
+    int k = 3;
+    canPartition(arr, k);
 }
 
 int main()

@@ -28,7 +28,7 @@ Sudoku Solver
 
 Cryptoarithmetic Problem
 Permutations of String
-Partition Equal Subset Sum
+Partition Set into K Subsets with Equal Sum
 
 WordBreak
 CrossWord Solver
