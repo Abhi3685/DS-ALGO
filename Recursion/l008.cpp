@@ -41,14 +41,38 @@ void tugOfWar(vector<int> &arr, int idx, int sum1, int sum2, string set1, string
     tugOfWar(arr, idx + 1, sum1, sum2 + arr[idx], set1, set2 + to_string(arr[idx]) + ", ");
 }
 
+void largestKSwap(string s, int k, string &max)
+{
+    if (k == 0)
+        return;
+
+    for (int i = 0; i < s.size() - 1; i++)
+    {
+        for (int j = i + 1; j < s.size(); j++)
+        {
+            swap(s[i], s[j]);
+            if (stoi(max) < stoi(s))
+                max = s;
+            largestKSwap(s, k - 1, max);
+            swap(s[i], s[j]);
+        }
+    }
+}
+
 int main()
 {
     string s = "226";
-    cout << numDecodings(s, 0);
+    cout << numDecodings(s, 0) << endl;
 
     vector<int> arr = {2, 3, 4, 5, 6, 7};
     tugOfWar(arr, 1, arr[0], 0, to_string(arr[0]) + ", ", "");
-    cout << ans;
+    cout << ans << endl;
+
+    string num = "1234";
+    int k = 1;
+    string max = num;
+    largestKSwap(num, k, max);
+    cout << max << endl;
 
     return 0;
 }
