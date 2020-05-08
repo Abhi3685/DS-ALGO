@@ -134,13 +134,9 @@ void ceilandfloor(Node *node, int data)
         return;
 
     if (node->data > data && node->data < ceilVal)
-    {
         ceilVal = node->data;
-    }
     if (node->data < data && node->data > floorVal)
-    {
         floorVal = node->data;
-    }
 
     ceilandfloor(node->left, data);
     ceilandfloor(node->right, data);
@@ -153,15 +149,13 @@ void predAndSucc(Node *node, int data)
 {
     if (node == nullptr)
         return;
+
     if (node->data == data && predNode == nullptr)
-    {
         predNode = prevNode;
-    }
     if (prevNode != nullptr && succNode == nullptr && prevNode->data == data)
-    {
         succNode = node;
-    }
     prevNode = node;
+
     predAndSucc(node->left, data);
     predAndSucc(node->right, data);
 }
