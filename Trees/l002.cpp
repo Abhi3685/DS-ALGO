@@ -77,32 +77,36 @@ void levelOrder(Node *root)
     cout << endl;
 }
 
-void kaway(Node* node, int k, Node* rNode){
-    if(node == nullptr) return;
-    if(node == rNode) return;
-    if(k == 0){
-        cout<<node->data<<" ";
+void kaway(Node *node, int k, Node *rNode)
+{
+    if (node == nullptr)
+        return;
+    if (node == rNode)
+        return;
+    if (k == 0)
+    {
+        cout << node->data << " ";
         return;
     }
 
-    kaway(node->left, k-1, rNode);
-    kaway(node->right, k-1, rNode);
+    kaway(node->left, k - 1, rNode);
+    kaway(node->right, k - 1, rNode);
 }
 
-vector<Node*> rootToNodePath(Node *root, int data)
+vector<Node *> rootToNodePath(Node *root, int data)
 {
     if (root == nullptr)
         return {};
     if (root->data == data)
         return {root};
 
-    vector<Node*> left = rootToNodePath(root->left, data);
+    vector<Node *> left = rootToNodePath(root->left, data);
     if (left.size() != 0)
     {
         left.push_back(root);
         return left;
     }
-    vector<Node*> right = rootToNodePath(root->right, data);
+    vector<Node *> right = rootToNodePath(root->right, data);
     if (right.size() != 0)
     {
         right.push_back(root);
@@ -112,23 +116,29 @@ vector<Node*> rootToNodePath(Node *root, int data)
     return {};
 }
 
-void kfar(Node* node, int k, int data){
-    vector<Node*> path = rootToNodePath(node, data);
-    Node* rNode = nullptr;
-    for(int i = 0; i < path.size(); i++){
+void kfar(Node *node, int k, int data)
+{
+    vector<Node *> path = rootToNodePath(node, data);
+    Node *rNode = nullptr;
+    for (int i = 0; i < path.size(); i++)
+    {
         kaway(path[i], k - i, rNode);
         rNode = path[i];
     }
 }
 
 int ceilVal = (int)1e8, floorVal = -(int)1e8;
-void ceilandfloor(Node* node, int data) {
-    if(node == nullptr) return;
+void ceilandfloor(Node *node, int data)
+{
+    if (node == nullptr)
+        return;
 
-    if(node->data > data && node->data < ceilVal) {
+    if (node->data > data && node->data < ceilVal)
+    {
         ceilVal = node->data;
     }
-    if(node->data < data && node->data > floorVal) {
+    if (node->data < data && node->data > floorVal)
+    {
         floorVal = node->data;
     }
 
@@ -136,13 +146,19 @@ void ceilandfloor(Node* node, int data) {
     ceilandfloor(node->right, data);
 }
 
-Node* predNode = nullptr; Node* prevNode = nullptr; Node* succNode = nullptr;
-void predAndSucc(Node* node, int data) {
-    if(node == nullptr) return;
-    if(node->data == data && predNode == nullptr){
+Node *predNode = nullptr;
+Node *prevNode = nullptr;
+Node *succNode = nullptr;
+void predAndSucc(Node *node, int data)
+{
+    if (node == nullptr)
+        return;
+    if (node->data == data && predNode == nullptr)
+    {
         predNode = prevNode;
     }
-    if (prevNode != nullptr && succNode == nullptr && prevNode->data == data) {
+    if (prevNode != nullptr && succNode == nullptr && prevNode->data == data)
+    {
         succNode = node;
     }
     prevNode = node;
@@ -161,7 +177,13 @@ int main()
     // kaway(root, 1, nullptr);
     // kfar(root, 1, 20);
 
+    // predAndSucc(root, 20);
+    // cout << "Predecessor: " << predNode->data << endl;
+    // cout << "Successor: " << succNode->data << endl;
 
+    // ceilandfloor(root, 20);
+    // cout << "Ceil: " << ceilVal << endl;
+    // cout << "Floor: " << floorVal << endl;
 
     return 0;
 }

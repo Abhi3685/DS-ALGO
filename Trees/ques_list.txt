@@ -12,5 +12,5 @@ Check if Binary Tree is BST
 
 Level Order Traversal
 Kfar & Kaway
-Ceil & Floor
-Predecessor & Successor
+Ceil & Floor Value
+Inorder Predecessor & Successor
