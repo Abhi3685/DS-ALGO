@@ -11,3 +11,6 @@ Diameter of Tree
 Check if Binary Tree is BST
 
 Level Order Traversal
+Kfar & Kaway
+Ceil & Floor
+Predecessor & Successor

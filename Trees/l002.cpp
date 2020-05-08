@@ -121,6 +121,35 @@ void kfar(Node* node, int k, int data){
     }
 }
 
+int ceilVal = (int)1e8, floorVal = -(int)1e8;
+void ceilandfloor(Node* node, int data) {
+    if(node == nullptr) return;
+
+    if(node->data > data && node->data < ceilVal) {
+        ceilVal = node->data;
+    }
+    if(node->data < data && node->data > floorVal) {
+        floorVal = node->data;
+    }
+
+    ceilandfloor(node->left, data);
+    ceilandfloor(node->right, data);
+}
+
+Node* predNode = nullptr; Node* prevNode = nullptr; Node* succNode = nullptr;
+void predAndSucc(Node* node, int data) {
+    if(node == nullptr) return;
+    if(node->data == data && predNode == nullptr){
+        predNode = prevNode;
+    }
+    if (prevNode != nullptr && succNode == nullptr && prevNode->data == data) {
+        succNode = node;
+    }
+    prevNode = node;
+    predAndSucc(node->left, data);
+    predAndSucc(node->right, data);
+}
+
 int main()
 {
     vector<int> arr = {50, 20, 10, -1, -1, 30, -1, -1, 80, 70, -1, -1, 90, -1, -1};
@@ -130,7 +159,9 @@ int main()
 
     // levelOrder(root);
     // kaway(root, 1, nullptr);
-    kfar(root, 1, 20);
+    // kfar(root, 1, 20);
+
+
 
     return 0;
 }
