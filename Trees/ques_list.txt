@@ -14,3 +14,7 @@ Level Order Traversal
 Kfar & Kaway
 Ceil & Floor Value
 Inorder Predecessor & Successor
+
+Count number of BST
+Check if Tree is Balanced
+Linearise Tree
