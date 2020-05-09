@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <string>
 using namespace std;
 
 int numDecodings(string s, int idx)
@@ -59,6 +60,16 @@ void largestKSwap(string s, int k, string &max)
     }
 }
 
+void towerOfHanoi(string a, string b, string c, int n)
+{
+    if (n == 0)
+        return;
+
+    towerOfHanoi(a, c, b, n - 1);
+    cout << a + " -> " + b + " (" + to_string(n) + ")" << endl;
+    towerOfHanoi(c, b, a, n - 1);
+}
+
 int main()
 {
     string s = "226";
@@ -73,6 +84,8 @@ int main()
     string max = num;
     largestKSwap(num, k, max);
     cout << max << endl;
+
+    towerOfHanoi("A", "B", "C", 3);
 
     return 0;
 }
