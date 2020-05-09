@@ -127,6 +127,23 @@ Node *linearTree(Node *root)
     return rightTail != nullptr ? rightTail : leftTail;
 }
 
+Node *head = nullptr, *prevNode = nullptr;
+void convertToDLL(Node *node)
+{
+    if (node == nullptr)
+        return;
+    convertToDLL(node->left);
+    if (prevNode == nullptr)
+        head = node;
+    else
+    {
+        node->left = prevNode;
+        prevNode->right = node;
+    }
+    prevNode = node;
+    convertToDLL(node->right);
+}
+
 int main()
 {
     vector<int> arr = {10, 15, 10, 9, -1, -1, 13, -1, -1, 20, 28, -1, -1, 48, -1, -1, 16, 12, -1, -1, 18, -1, -1};
@@ -136,8 +153,16 @@ int main()
     // cout << b.isBST << " " << b.count << endl;
 
     // cout << isBalanced(root) << endl;
-    linearTree(root);
-    display(root);
+
+    // linearTree(root);
+    // display(root);
+
+    convertToDLL(root);
+    while (head != nullptr)
+    {
+        cout << head->data << " ";
+        head = head->right;
+    }
 
     return 0;
 }
