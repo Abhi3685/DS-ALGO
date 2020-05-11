@@ -19,3 +19,10 @@ Count number of BST
 Check if Tree is Balanced
 Linearise Tree
 Convert to Doubly Linked List (InPlace)
+
+Merge 2 Binary Trees
+Sum of Left Leaves
+Convert BST to Greater Tree
+Longest Univalue Path
+Minimum Absolute Difference in BST
+Optimal Cost BST
