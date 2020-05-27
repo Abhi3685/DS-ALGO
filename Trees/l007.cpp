@@ -131,6 +131,18 @@ void display(Node* root) {
     display(root->right);
 }
 
+int maxLen = 0;
+void longestConsecutiveSequence(Node* root, int expectedVal, int currLen) {
+    if(root == nullptr) return;
+
+    if(root->data == expectedVal) currLen++; 
+    else currLen = 1;
+    maxLen = max(maxLen, currLen);
+
+    longestConsecutiveSequence(root->left, root->data + 1, currLen);
+    longestConsecutiveSequence(root->right, root->data + 1, currLen);
+}
+
 int main()
 {
     Node* root = nullptr;
@@ -142,11 +154,18 @@ int main()
     root = insert(root, 30);
     root = insert(root, 27);
     root = insert(root, 16);
-
     root = deleteNode(root, 27);
     root = deleteNode(root, 25);
-
     display(root);
+
+    Node* root2 = new Node(6); 
+    root2->right = new Node(9); 
+    root2->right->left = new Node(7); 
+    root2->right->right = new Node(10); 
+    root2->right->right->right = new Node(11); 
+
+    longestConsecutiveSequence(root2, root2->data, 0);
+    cout<<maxLen<<endl;
 
     return 0;
 }

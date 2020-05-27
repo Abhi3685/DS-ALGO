@@ -39,3 +39,5 @@ Boundary View
 Vertical View
 
 AVL Implementation
+Width of Binary Tree
+Longest Consecutive Sequence 
