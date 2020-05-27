@@ -34,6 +34,9 @@ Node* ll_rotate(Node* A) {
     B->left = A;
     A->right = tmp;
 
+    A->height = 1 + max(height(A->left), height(A->right));
+    B->height = 1 + max(height(B->left), height(B->right));
+
     return B;
 }
 
@@ -43,6 +46,9 @@ Node* rr_rotate(Node* A) {
 
     B->right = A;
     A->left = tmp;
+
+    A->height = 1 + max(height(A->left), height(A->right));
+    B->height = 1 + max(height(B->left), height(B->right));
 
     return B;
 }
@@ -81,13 +87,45 @@ Node* insert(Node* root, int data) {
     return balance(root);
 }
 
+Node* minValueNode(Node* node) {
+    while(node->left != nullptr){
+        node = node->left;
+    }
+    return node;
+}
+
+Node* deleteNode(Node* root, int data) {
+    if(root == nullptr) return nullptr;
+
+    if(data < root->data)
+        root->left = deleteNode(root->left, data);
+    else if (data > root->data)
+        root->right = deleteNode(root->right, data);
+    else {
+        if(root->right == nullptr && root->left == nullptr) 
+            root = nullptr;
+        else if(root->right == nullptr || root->left == nullptr) 
+            root = root->right == nullptr ? root->left : root->right;
+        else {
+            Node* temp = minValueNode(root->right);
+            root->data = temp->data;
+            root->right = deleteNode(root->right, temp->data); 
+        }
+    }
+
+    if (root == nullptr) return nullptr;
+
+    root->height = 1 + max(height(root->left), height(root->right));
+    return balance(root);
+}
+
 void display(Node* root) {
     if(root == nullptr) return;
 
     root->left != nullptr ? cout<<root->left->data : cout<<".";
     cout<<" => "<<root->data<<" <= ";
     root->right != nullptr ? cout<<root->right->data : cout<<".";
-    cout<<endl;
+    cout<<" ("<<root->height<<")"<<endl;
 
     display(root->left);
     display(root->right);
@@ -104,6 +142,9 @@ int main()
     root = insert(root, 30);
     root = insert(root, 27);
     root = insert(root, 16);
+
+    root = deleteNode(root, 27);
+    root = deleteNode(root, 25);
 
     display(root);
 
