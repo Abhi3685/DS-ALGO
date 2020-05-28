@@ -40,4 +40,7 @@ Vertical View
 
 AVL Implementation
 Width of Binary Tree
-Longest Consecutive Sequence 
+Longest Consecutive Sequence
+
+Binary Tree Cameras
+Diagonal Traversal
