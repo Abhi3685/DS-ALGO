@@ -48,3 +48,9 @@ Diagonal Traversal
 Iterative Preorder Traversal
 Morris Inorder Traversal
 Iterative Postorder Traversal
+
+Merge BT/BST
+Generic Tree Construction
+Generic Tree Display
+Generic Tree Size
+Generic Tree Height
