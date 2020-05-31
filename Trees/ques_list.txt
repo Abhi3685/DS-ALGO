@@ -54,3 +54,6 @@ Generic Tree Construction
 Generic Tree Display
 Generic Tree Size
 Generic Tree Height
+Generic Tree Find
+Generic Tree Root to Node Path
+Check if Generic Tree is Mirror
