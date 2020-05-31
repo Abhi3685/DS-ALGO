@@ -57,3 +57,7 @@ Generic Tree Height
 Generic Tree Find
 Generic Tree Root to Node Path
 Check if Generic Tree is Mirror
+
+Flatten Generic Tree
+ZigZag Tree Traversal
+Linearise Generic Tree
