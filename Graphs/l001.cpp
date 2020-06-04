@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <string>
 using namespace std;
 
 class Edge
@@ -55,6 +56,19 @@ void removeVertex(vector<vector<Edge *>> &graph, int u)
     }
 }
 
+void DFS(vector<vector<Edge *>> &graph, int u, vector<bool> &vis)
+{
+    cout << u << " ";
+    vis[u] = true;
+    for (Edge *e : graph[u])
+    {
+        if (!vis[e->v])
+        {
+            DFS(graph, e->v, vis);
+        }
+    }
+}
+
 void display(vector<vector<Edge *>> &graph)
 {
     for (int i = 0; i < graph.size(); i++)
@@ -66,6 +80,87 @@ void display(vector<vector<Edge *>> &graph)
         }
         cout << endl;
     }
+}
+
+bool hasPath(vector<vector<Edge *>> &graph, int src, int dest, string ans, vector<bool> &vis)
+{
+    if (src == dest)
+    {
+        cout << ans + to_string(src) << endl;
+        return true;
+    }
+    vis[src] = true;
+    bool res = false;
+    for (Edge *e : graph[src])
+    {
+        if (!vis[e->v])
+            res = res || hasPath(graph, e->v, dest, ans + to_string(src) + " ", vis);
+    }
+    return res;
+}
+
+int allPath(vector<vector<Edge *>> &graph, int src, int dest, string ans, vector<bool> &vis)
+{
+    if (src == dest)
+    {
+        cout << ans + to_string(dest) << endl;
+        return 1;
+    }
+    vis[src] = true;
+    int count = 0;
+    for (Edge *e : graph[src])
+    {
+        if (!vis[e->v])
+            count += allPath(graph, e->v, dest, ans + to_string(src) + " ", vis);
+    }
+    vis[src] = false;
+    return count;
+}
+
+int hamiltonianPath(vector<vector<Edge *>> &graph, int src, string ans, vector<bool> &vis)
+{
+    if (ans.length() == graph.size())
+    {
+        cout << ans << endl;
+        return 1;
+    }
+    vis[src] = true;
+    int count = 0;
+    for (Edge *e : graph[src])
+    {
+        if (!vis[e->v])
+            count += hamiltonianPath(graph, e->v, ans + to_string(e->v), vis);
+    }
+    vis[src] = false;
+    return count;
+}
+
+int hamiltonianCycle(vector<vector<Edge *>> &graph, int src, string ans, vector<bool> &vis)
+{
+    if (ans.length() == graph.size())
+    {
+        int fv = ans[0] - '0';                // Starting Vertex
+        int lv = ans[graph.size() - 1] - '0'; // Ending Vertex
+        // check if edge exists from first to last vertex in hamiltonian path
+        for (Edge *e : graph[fv])
+        {
+            if (e->v == lv)
+            {
+                cout << ans + to_string(fv) << endl;
+                return 1;
+            }
+        }
+        return 0;
+    }
+    vis[src] = true;
+    int count = 0;
+    for (Edge *e : graph[src])
+    {
+        if (!vis[e->v])
+            count += hamiltonianCycle(graph, e->v, ans + to_string(e->v), vis);
+    }
+    vis[src] = false;
+    return count;
 }
 
 int main()
@@ -83,9 +178,20 @@ int main()
     addEdge(graph, 4, 6, 8);
 
     // removeEdge(graph, 4, 3);
-    removeVertex(graph, 4);
+    // removeVertex(graph, 4);
 
-    display(graph);
+    // display(graph);
+
+    vector<bool> vis(noOfVertices);
+    // DFS(graph, 0, vis);
+
+    // hasPath(graph, 0, 6, "", vis);
+    // allPath(graph, 0, 6, "", vis);
+
+    // hamiltonianPath(graph, 0, "0", vis);
+
+    // addEdge(graph, 5, 2, 5);
+    // hamiltonianCycle(graph, 0, "0", vis);
 
     return 0;
 }

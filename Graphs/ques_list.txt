@@ -4,3 +4,8 @@ Graph Questions
 Construction
 Add Vertex/Edge
 Remove Vertex/Edge
+DFS (Depth First Search)
+Check if there exist a path between 2 vertices
+Print all path between 2 vertices
+Hamiltonian Path
+Hamiltonian Cycle
