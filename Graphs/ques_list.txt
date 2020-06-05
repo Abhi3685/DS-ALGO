@@ -12,3 +12,6 @@ Hamiltonian Cycle
 
 Leetcode 130 (Surrounded Regions)
 Leetcode 1267 (Count Servers that Communicate)
+Topological Sort
+BFS (Breadth First Search)
+Get Connected Components (GCC)
