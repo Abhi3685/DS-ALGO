@@ -15,3 +15,5 @@ Leetcode 1267 (Count Servers that Communicate)
 Topological Sort
 BFS (Breadth First Search)
 Get Connected Components (GCC)
+Leetcode 207 (Course Schedule)
+Leetcode 210 (Course Schedule II)

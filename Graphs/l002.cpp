@@ -69,11 +69,11 @@ void BFS(int vtx, int data, vector<bool> &vis)
         // }
 
         // Condition to check if cycle exists in graph.
-        if (vis[rvtx])
-        {
-            cout << "Cycle Found!" << endl;
-            continue; // Comment for all possible cycles
-        }
+        // if (vis[rvtx])
+        // {
+        //     cout << "Cycle Found!" << endl;
+        //     continue; // Comment for all possible cycles
+        // }
 
         for (Edge *e : graph[rvtx])
         {
