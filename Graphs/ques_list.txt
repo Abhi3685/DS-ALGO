@@ -17,3 +17,6 @@ BFS (Breadth First Search)
 Get Connected Components (GCC)
 Leetcode 207 (Course Schedule)
 Leetcode 210 (Course Schedule II)
+
+Detect Cycle in Undirected Graph
+Detect Cycle in Directed Graph
