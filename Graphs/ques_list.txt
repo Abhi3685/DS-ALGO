@@ -21,3 +21,7 @@ Leetcode 210 (Course Schedule II)
 Detect Cycle in Undirected Graph
 Detect Cycle in Directed Graph
 Kahn's Algorithm
+
+Check if a given graph is Bipartite
+Leetcode 994 (Rotting Oranges)
+Disjoint Set Union

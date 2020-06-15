@@ -183,6 +183,59 @@ void leet210(int numOfCourses, vector<vector<int>> &prereq)
     }
 }
 
+int leet994(vector<vector<int>> &grid)
+{
+    queue<pair<int, int>> que;
+    for (int i = 0; i < grid.size(); i++)
+    {
+        for (int j = 0; j < grid[0].size(); j++)
+        {
+            if (grid[i][j] == 2)
+            {
+                que.push({i, j});
+            }
+        }
+    }
+
+    int timer = 0;
+    while (que.size() != 0)
+    {
+        int size = que.size();
+        while (size--)
+        {
+            pair<int, int> rIdx = que.front();
+            que.pop();
+
+            vector<vector<int>> dir = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
+            for (int i = 0; i < 4; i++)
+            {
+                int x = rIdx.first + dir[i][0];
+                int y = rIdx.second + dir[i][1];
+
+                if (x >= 0 && x < grid.size() && y >= 0 && y < grid[0].size() && grid[x][y] == 1)
+                {
+                    grid[x][y] = 2;
+                    que.push({x, y});
+                }
+            }
+        }
+        timer++;
+    }
+
+    for (int i = 0; i < grid.size(); i++)
+    {
+        for (int j = 0; j < grid[0].size(); j++)
+        {
+            if (grid[i][j] == 1)
+            {
+                return -1;
+            }
+        }
+    }
+
+    return timer == 0 ? 0 : timer - 1;
+}
+
 int main()
 {
     // ============ Leetcode 130 ================
@@ -214,6 +267,10 @@ int main()
         {1, 0}};
     leet207(2, prerequisites);
     leet210(2, prerequisites);
+
+    // ============ Leetcode 994 ================
+    vector<vector<int>> grid2 = {{2, 1, 1}, {1, 1, 0}, {0, 1, 1}};
+    cout << leet994(grid2);
 
     return 0;
 }
