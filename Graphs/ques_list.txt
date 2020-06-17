@@ -26,3 +26,5 @@ Check if a given graph is Bipartite
 Leetcode 994 (Rotting Oranges)
 Disjoint Set Union
 Kruskal Algorithm
+
+Dijkstra Algorithm
