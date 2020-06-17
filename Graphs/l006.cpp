@@ -63,6 +63,7 @@ void DSU()
 
 void kruskalAlgo()
 {
+    // Select minimum weight edge which doesn't form a cycle.
     vector<vector<int>> edges;
     vector<vector<int>> result;
     edges.push_back({0, 1, 10}); // u, v, w

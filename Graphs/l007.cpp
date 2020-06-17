@@ -59,6 +59,44 @@ void dijikstraAlgo(int src)
         cout << i << " \t\t " << distances[i] << "\n";
 }
 
+int minKey(vector<int> &key, vector<bool> &visited)
+{
+    int min = INT_MAX, min_index;
+    for (int v = 0; v < n; v++)
+        if (!visited[v] && key[v] < min)
+            min = key[v], min_index = v;
+    return min_index;
+}
+
+void primMST()
+{
+    // Array to store constructed MST
+    vector<int> parent(n);
+    // Key values used to pick minimum weight edge in cut
+    vector<int> key(n, INT_MAX);
+    // To represent set of vertices included in MST
+    vector<bool> visited(n, false);
+
+    key[0] = 0;
+    parent[0] = -1;
+
+    for (int count = 0; count < n; count++)
+    {
+        int u = minKey(key, visited);
+        visited[u] = true;
+        for (Edge *e : graph[u])
+            if (!visited[e->v] && e->w < key[e->v])
+            {
+                parent[e->v] = u;
+                key[e->v] = e->w;
+            }
+    }
+
+    cout << "Edge \tWeight\n";
+    for (int i = 1; i < n; i++)
+        cout << parent[i] << " - " << i << " \t" << key[i] << " \n";
+}
+
 int main()
 {
     addEdge(0, 1, 10);
@@ -70,6 +108,7 @@ int main()
     addEdge(4, 6, 50);
     addEdge(5, 6, 80);
 
-    dijikstraAlgo(0);
+    // dijikstraAlgo(0);
+    primMST();
     return 0;
 }

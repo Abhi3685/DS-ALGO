@@ -28,3 +28,4 @@ Disjoint Set Union
 Kruskal Algorithm
 
 Dijkstra Algorithm
+Prims Algorithm
