@@ -29,3 +29,5 @@ Kruskal Algorithm
 
 Dijkstra Algorithm
 Prims Algorithm
+Strongly Connected Components
+Journey to the Moon (Hackerrank)
