@@ -3,3 +3,6 @@ Stack & Queue Questions
 
 Stack implementation
 Queue implementation
+
+Next Greater On Right
+Next Greater On Left
