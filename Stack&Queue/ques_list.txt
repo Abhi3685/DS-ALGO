@@ -6,3 +6,8 @@ Queue implementation
 
 Next Greater On Right
 Next Greater On Left
+Next Smaller On Right
+Next Smaller On Left
+Leetcode 20 (Valid Parentheses)
+Leetcode 1021 (Remove Outermost Parentheses)
+Leetcode 32 (Longest Valid Parentheses)
