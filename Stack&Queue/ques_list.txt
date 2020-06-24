@@ -12,3 +12,8 @@ Leetcode 20 (Valid Parentheses)
 Leetcode 1021 (Remove Outermost Parentheses)
 Leetcode 32 (Longest Valid Parentheses)
 Leetcode 84 (Largest Rectangle in Histogram)
+
+Leetcode 735 (Asteroid Collision)
+Leetcode 503 (Next Greater Element II)
+Leetcode 42 (Trapping Rain Water)
+Leetcode 901 (Online Stock Span)
