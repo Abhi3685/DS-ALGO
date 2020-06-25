@@ -17,3 +17,6 @@ Leetcode 735 (Asteroid Collision)
 Leetcode 503 (Next Greater Element II)
 Leetcode 42 (Trapping Rain Water)
 Leetcode 901 (Online Stock Span)
+
+Queue implementation using Stack
+Stack implementation using Queue
