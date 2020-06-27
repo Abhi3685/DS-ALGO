@@ -257,6 +257,85 @@ public:
     }
 };
 
+// =============== Leetcode 853 ===============
+int leet853(int target, vector<int> &p, vector<int> &s)
+{
+    if (p.size() == 0)
+        return 0;
+
+    vector<pair<int, double>> arr;
+    for (int i = 0; i < p.size(); i++)
+    {
+        double time = (double)(target - p[i]) / s[i];
+        arr.push_back({p[i], time});
+    }
+
+    // Sort on basis of position
+    sort(arr.begin(), arr.end());
+
+    int ans = 0, t = arr.size();
+    while (--t > 0)
+    {
+        if (arr[t].second < arr[t - 1].second)
+            ans++; // car behind is slow and can't overtake, this will generate new fleet
+        else
+            arr[t - 1] = arr[t]; // arr[t-1] arrives at same time as arr[t]
+    }
+
+    // lone car is fleet (if it exists)
+    return ans + (t == 0 ? 1 : 0);
+}
+
+// =============== Leetcode 636 ===============
+vector<string> split(string s)
+{
+    vector<string> ans;
+    string temp = "";
+    for (auto c : s)
+    {
+        if (c == ':')
+        {
+            ans.push_back(temp);
+            temp = "";
+        }
+        else
+        {
+            temp += c;
+        }
+    }
+    ans.push_back(temp);
+    return ans;
+}
+
+vector<int> leet636(int n, vector<string> &logs)
+{
+    vector<int> res(n);
+    stack<int> st;
+    vector<string> s = split(logs[0]);
+    st.push(stoi(s[0]));
+    int i = 1, prev = stoi(s[2]);
+
+    while (i < logs.size())
+    {
+        s = split(logs[i]);
+        if (s[1].compare("start") == 0) // Start Log Statment
+        {
+            if (!st.empty())
+                res[st.top()] += stoi(s[2]) - prev;
+            st.push(stoi(s[0]));
+            prev = stoi(s[2]);
+        }
+        else // End Log Statment
+        {
+            res[st.top()] += stoi(s[2]) - prev + 1;
+            st.pop();
+            prev = stoi(s[2]) + 1;
+        }
+        i++;
+    }
+    return res;
+}
+
 int main()
 {
     // cout << leet20("[]{}()") << endl;
@@ -292,6 +371,17 @@ int main()
     // cout << S.next(75) << " ";
     // cout << S.next(85) << " ";
     // cout << endl;
+
+    // int target = 12;
+    // vector<int> p = {10, 8, 0, 5, 3};
+    // vector<int> s = {2, 4, 1, 1, 3};
+    // cout << leet853(target, p, s) << endl;
+
+    vector<string> logs = {"0:start:0", "1:start:2", "1:end:5", "0:end:6"};
+    vector<int> ans = leet636(2, logs);
+    for (int n : ans)
+        cout << n << " ";
+    cout << endl;
 
     return 0;
 }
