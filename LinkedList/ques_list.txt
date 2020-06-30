@@ -2,3 +2,6 @@ Linked List Questions
 ======================
 
 Linked List implementation
+Get Mid Element
+Reverse Data
+Reverse Pointer

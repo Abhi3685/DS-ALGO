@@ -160,12 +160,12 @@ int main()
     ll.addFirst(1);
     ll.addAt(4, 3);
     ll.display();
-    cout << ll.getFirst()->data << endl;
-    cout << ll.getLast()->data << endl;
-    cout << ll.getAt(3)->data << endl;
-    ll.removeFirst();
-    ll.removeLast();
-    ll.removeAt(2);
-    ll.display();
+    // cout << ll.getFirst()->data << endl;
+    // cout << ll.getLast()->data << endl;
+    // cout << ll.getAt(3)->data << endl;
+    // ll.removeFirst();
+    // ll.removeLast();
+    // ll.removeAt(2);
+    // ll.display();
     return 0;
 }
