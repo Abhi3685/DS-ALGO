@@ -7,3 +7,10 @@ Reverse Data
 Reverse Pointer
 Leetcode 234 (Palindrome Linked List)
 Leetcode 143 (Reorder List)
+Leetcode 141 (Linked List Cycle)
+Leetcode 142 (Linked List Cycle II)
+Leetcode 160 (Intersection of Two Linked Lists)
+Leetcode 61 (Rotate List)
+Leetcode 21 (Merge Two Sorted Lists)
+Leetcode 148 (Sort List)
+Leetcode 138 (Copy List with Random Pointer)
