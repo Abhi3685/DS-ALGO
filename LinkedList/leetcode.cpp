@@ -89,6 +89,27 @@ void reorderList(ListNode *head)
     }
 }
 
+ListNode* reverseKGroup(ListNode *head, int k) {
+    ListNode *node = head;
+    int count = 0;
+
+    while(count < k) {
+        if(node == nullptr) return head;
+        node = node->next;
+        count++;
+    }
+
+    ListNode* pre = reverseKGroup(node, k);
+    while (count > 0) {  
+        ListNode* next = head->next;
+        head->next = pre; 
+        pre = head; 
+        head = next;
+        count--;
+    }
+    return pre;
+}
+
 int main()
 {
     return 0;
