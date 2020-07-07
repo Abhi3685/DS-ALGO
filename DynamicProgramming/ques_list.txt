@@ -8,3 +8,7 @@ Maze Path HVD Memoization
 Maze Path HVD Tabulation
 Maze Path HVD with Jump Memoization
 Maze Path HVD with Jump Tabulation
+
+Path using Normal Dice Moves
+Path using Custom Dice Moves
+Path using Dice Moves Tabulation
