@@ -12,3 +12,10 @@ Maze Path HVD with Jump Tabulation
 Path using Normal Dice Moves
 Path using Custom Dice Moves
 Path using Dice Moves Tabulation
+Leetcode 70 (Climbing Stairs)
+Leetcode 746 (Min Cost Climbing Stairs)
+Leetcode 64 (Minimum Path Sum)
+
+Gold Mine Problem (GFG)
+No. of ways to pair people (GFG)
+No. of ways to partition a set / N items into k subsets (GFG)
