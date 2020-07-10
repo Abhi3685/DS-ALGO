@@ -19,3 +19,8 @@ Leetcode 64 (Minimum Path Sum)
 Gold Mine Problem (GFG)
 No. of ways to pair people (GFG)
 No. of ways to partition a set / N items into k subsets (GFG)
+Check if a substring is palindrome
+Longest Palindromic Substring
+Longest Palindromic Subsequence
+Count of Palindromic Substring
+Count of Palindromic Subsequence
