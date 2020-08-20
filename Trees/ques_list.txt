@@ -15,7 +15,7 @@ Kfar & Kaway
 Ceil & Floor Value
 Inorder Predecessor & Successor
 
-Count number of BST
+Size of largest BST in a given tree
 Check if Tree is Balanced
 Linearise Tree
 Convert to Doubly Linked List (InPlace)
