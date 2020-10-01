@@ -24,3 +24,8 @@ Longest Palindromic Substring
 Longest Palindromic Subsequence
 Count of Palindromic Substring
 Count of Palindromic Subsequence
+
+Minimum cost to Paint House
+Tiling with 2 x 1 tiles
+Tiling with M x 1 tiles
+Number of ways to pair friends
