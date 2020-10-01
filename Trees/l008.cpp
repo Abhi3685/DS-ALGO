@@ -53,6 +53,33 @@ void binaryTreeCamera(Node *root)
     cout << cameras << endl;
 }
 
+void printSingleChildNodes(Node *node, Node *parent){
+    if(node == nullptr) return;
+
+    if(parent != nullptr && parent->left == nullptr && parent->right == node){
+      cout << node->data << endl;
+    } else if(parent != nullptr && parent->right == nullptr && parent->left == node){
+      cout << node->data << endl;
+    }
+
+    printSingleChildNodes(node->left, node);
+    printSingleChildNodes(node->right, node);
+}
+
+Node* createLeftCloneTree(Node* node){
+    if(node == nullptr) return nullptr;
+
+    Node* lcr = createLeftCloneTree(node->left);
+    Node* rcr = createLeftCloneTree(node->right);
+
+    Node* tmp = new Node(node->data);
+    tmp->left = lcr;
+    node->left = tmp;
+    node->right = rcr;
+
+    return node;
+}
+
 int main()
 {
     Node *root = new Node(0);
@@ -62,6 +89,10 @@ int main()
     root->left->left->left->right = new Node(0);
 
     binaryTreeCamera(root);
+
+    printSingleChildNodes(root, nullptr);
+
+    root = createLeftCloneTree(root);
 
     return 0;
 }

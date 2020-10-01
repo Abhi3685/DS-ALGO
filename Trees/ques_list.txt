@@ -61,3 +61,5 @@ Check if Generic Tree is Mirror
 Flatten Generic Tree
 ZigZag Tree Traversal
 Linearise Generic Tree
+Transform To Left-cloned Tree
+Print Single Child Nodess
