@@ -29,7 +29,9 @@ Kruskal Algorithm
 
 Dijkstra Algorithm
 Prims Algorithm
-Strongly Connected Components
+Leetcode 1168 (Optimize Water Distribution)
+Strongly Connected Components (Kosa Raju Algorithm)
+Leetcode 329 (Longest Increasing Path in a Matrix)
 Journey to the Moon (Hackerrank)
 
 Articulation Points
